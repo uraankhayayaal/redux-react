@@ -5,13 +5,15 @@ import './App.css';
 import { connect } from 'react-redux';
 
 import { createAction } from './actions/userAction';
+import { clearAction } from './actions/userAction';
 
 const mapStateToProps = state => ({
   ...state
 })
 
 const mapDispatchToProps = dispatch => ({
-  createAction: () => dispatch(createAction())
+  createAction: () => dispatch(createAction()),
+  clearAction: () => dispatch(clearAction())
 })
 
 class App extends Component {
@@ -21,17 +23,17 @@ class App extends Component {
     console.log('create action');
   }
 
-  test = () => {
-    console.log("test");
+  clearAction = (event) => {
+    this.props.clearAction();
+    console.log('clear action');
   }
   
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p onClick={this.createAction}>Test redux action</p>
-          <p onClick={this.test}>Test sipmle</p>
+          <button onClick={this.createAction}>Test redux action</button>
+          <button onClick={this.clearAction}>Clear</button>
           <pre>
           {
             JSON.stringify(this.props)

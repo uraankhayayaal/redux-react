@@ -5,7 +5,6 @@ import configureStore from './store/store';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
  <Provider store={configureStore()}>
@@ -14,5 +13,4 @@ ReactDOM.render(
  document.getElementById('root')
 );
 
-//serviceWorker.unregister();
-registerServiceWorker();
+serviceWorker.unregister();

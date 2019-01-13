@@ -4,3 +4,10 @@ export const createAction = () => dispatch => {
         payload: 'result_of_create_action'
     })
 }
+
+export const clearAction = () => dispatch => {
+    dispatch({
+        type: 'CLEAR_ACTION',
+        payload: ''
+    })
+}
